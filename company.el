@@ -3604,6 +3604,20 @@ Example: \(company-begin-with \\='\(\"foo\" \"foobar\" \"foobarbaz\"\)\)"
 (declare-function find-library-name "find-func")
 (declare-function lm-version "lisp-mnt")
 
+;; (defun company-version (&optional show-version)
+;;   "Get the Company version as string.
+
+;; If SHOW-VERSION is non-nil, show the version in the echo area."
+;;   (interactive (list t))
+;;   (with-temp-buffer
+;;     (require 'find-func)
+;;     (insert-file-contents (find-library-name "company"))
+;;     (require 'lisp-mnt)
+;;     (if show-version
+;;         (message "Company version: %s" (lm-version))
+;;       (lm-version))))
+
+
 (defun company-version (&optional show-version)
   "Get the Company version as string.
 
@@ -3614,8 +3628,13 @@ If SHOW-VERSION is non-nil, show the version in the echo area."
     (insert-file-contents (find-library-name "company"))
     (require 'lisp-mnt)
     (if show-version
-        (message "Company version: %s" (lm-version))
-      (lm-version))))
+	;; RDU: the next is broken
+        ;; (message "Company version: %s" (lm-version))
+	(message "Company version: RDU fixed")
+      ;; (lm-version)
+      (message "Company second part of version RDU")
+      )
+    ))
 
 (defun company-diag ()
   "Pop a buffer with information about completions at point."
